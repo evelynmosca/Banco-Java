@@ -11,10 +11,7 @@ public class ContaService {
         this.proximoNumero = 1001;
     }
 
-    // -------------------------------------------------------------------------
-    // Criar contas
-    // -------------------------------------------------------------------------
-
+    // Criar conta
     public ContaCorrente criarContaCorrente(Cliente cliente, double saldoInicial, double chequeEspecial) {
         ContaCorrente conta = new ContaCorrente(proximoNumero++, cliente, saldoInicial, chequeEspecial);
         contasCorrente.add(conta);
@@ -29,12 +26,9 @@ public class ContaService {
         return conta;
     }
 
-    // -------------------------------------------------------------------------
-    // Exibir contas
-    // -------------------------------------------------------------------------
-
+    // Exibir conta
     public void exibirContas() {
-        System.out.println("\n===== CONTAS CORRENTES =====");
+        System.out.println("\nConta Correntes");
         if (contasCorrente.isEmpty()) {
             System.out.println("Nenhuma conta corrente cadastrada.");
         } else {
@@ -43,7 +37,7 @@ public class ContaService {
             }
         }
 
-        System.out.println("\n===== CONTAS POUPANÇA =====");
+        System.out.println("\nConta Poupança");
         if (contasPoupanca.isEmpty()) {
             System.out.println("Nenhuma conta poupança cadastrada.");
         } else {
@@ -54,10 +48,7 @@ public class ContaService {
         System.out.println();
     }
 
-    // -------------------------------------------------------------------------
     // Buscar conta por número
-    // -------------------------------------------------------------------------
-
     public Conta buscarConta(int numeroConta) {
         for (ContaCorrente c : contasCorrente) {
             if (c.getNumeroConta() == numeroConta) return c;
@@ -68,10 +59,7 @@ public class ContaService {
         return null;
     }
 
-    // -------------------------------------------------------------------------
     // Operações bancárias
-    // -------------------------------------------------------------------------
-
     public void sacar(int numeroConta, double valor) {
         Conta conta = buscarConta(numeroConta);
         if (conta == null) {
@@ -101,9 +89,7 @@ public class ContaService {
         origem.transferir(destino, valor);
     }
 
-    // -------------------------------------------------------------------------
     // Cheque especial (apenas ContaCorrente, e só com saldo zerado)
-    // -------------------------------------------------------------------------
 
     public void utilizarChequeEspecial(int numeroConta, double valor) {
         Conta conta = buscarConta(numeroConta);
@@ -118,10 +104,7 @@ public class ContaService {
         ((ContaCorrente) conta).utilizarChequeEspecial(valor);
     }
 
-    // -------------------------------------------------------------------------
     // Rentabilizar (apenas ContaPoupanca)
-    // -------------------------------------------------------------------------
-
     public void rentabilizar(int numeroConta) {
         Conta conta = buscarConta(numeroConta);
         if (conta == null) {
@@ -135,10 +118,7 @@ public class ContaService {
         ((ContaPoupanca) conta).rentabilizar();
     }
 
-    // -------------------------------------------------------------------------
     // Encerrar conta
-    // -------------------------------------------------------------------------
-
     public void encerrarConta(int numeroConta) {
         for (int i = 0; i < contasCorrente.size(); i++) {
             if (contasCorrente.get(i).getNumeroConta() == numeroConta) {

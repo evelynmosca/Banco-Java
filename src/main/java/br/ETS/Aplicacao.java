@@ -30,10 +30,6 @@ public class Aplicacao {
         } while (opcao != 0);
     }
 
-    // -------------------------------------------------------------------------
-    // Menu
-    // -------------------------------------------------------------------------
-
     private void exibirMenu() {
         System.out.println("╔══════════════════════════════════════╗");
         System.out.println("║         SISTEMA BANCÁRIO             ║");
@@ -50,17 +46,13 @@ public class Aplicacao {
         System.out.println("╚══════════════════════════════════════╝");
     }
 
-    // -------------------------------------------------------------------------
-    // Ações
-    // -------------------------------------------------------------------------
-
     private void criarConta() {
         System.out.println("Tipo de conta:");
         System.out.println("  1. Conta Corrente");
         System.out.println("  2. Conta Poupança");
         int tipo = lerInt("Escolha: ");
 
-        System.out.println("\n--- Dados do Cliente ---");
+        System.out.println("\nDados do Cliente");
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("CPF: ");
@@ -115,10 +107,6 @@ public class Aplicacao {
         contaService.encerrarConta(numero);
     }
 
-    // -------------------------------------------------------------------------
-    // Helpers de leitura
-    // -------------------------------------------------------------------------
-
     private int lerInt(String mensagem) {
         System.out.print(mensagem);
         while (!scanner.hasNextInt()) {
@@ -126,7 +114,7 @@ public class Aplicacao {
             scanner.next();
         }
         int valor = scanner.nextInt();
-        scanner.nextLine(); // consome o newline
+        scanner.nextLine();
         return valor;
     }
 

@@ -10,9 +10,7 @@ public class ContaPoupanca extends Conta {
         return taxaRentabilidade;
     }
 
-    /**
-     * Aplica a taxa de rentabilidade sobre o saldo atual.
-     */
+    //Aplica a taxa de rentabilidade sobre o saldo atual
     public void rentabilizar() {
         double rendimento = getSaldo() * (taxaRentabilidade / 100);
         setSaldo(getSaldo() + rendimento);

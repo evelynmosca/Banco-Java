@@ -16,10 +16,8 @@ public class ContaCorrente extends Conta {
         return chequeEspecialAtivo;
     }
 
-    /**
-     * Utiliza o cheque especial somente quando o saldo está zerado.
-     * O valor sacado vem do limite do cheque especial.
-     */
+    // Utiliza o cheque especial somente quando o saldo está zerado
+    // O valor sacado vem do limite do cheque especial
     public boolean utilizarChequeEspecial(double valor) {
         if (getSaldo() > 0) {
             System.out.println("Cheque especial só pode ser utilizado quando o saldo está zerado.");
@@ -42,6 +40,6 @@ public class ContaCorrente extends Conta {
     @Override
     public String toString() {
         return super.toString() + String.format(" | Tipo: Corrente | Cheque Especial: R$ %.2f%s",
-                chequeEspecial, chequeEspecialAtivo ? " (ATIVO)" : "");
+                chequeEspecial, chequeEspecialAtivo ? " (Ativo)" : "");
     }
 }
