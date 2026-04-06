@@ -1,3 +1,5 @@
+package br.ETS;
+
 public class ContaPoupanca extends Conta {
     private double taxaRentabilidade; // em porcentagem, ex: 0.5 = 0.5%
 

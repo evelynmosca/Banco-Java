@@ -1,3 +1,5 @@
+package br.ETS;
+
 public class ContaCorrente extends Conta {
     private double chequeEspecial;
     private boolean chequeEspecialAtivo;
